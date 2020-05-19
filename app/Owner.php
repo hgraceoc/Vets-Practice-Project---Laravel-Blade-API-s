@@ -24,7 +24,7 @@ class Owner extends Model
     }
 
     public function validPhoneNumber(){
-        return preg_match("/\d{4}\s\d{7}/", $this->telephone) === 1;
+        return preg_match("/\d/", $this->telephone) === 1;
     }
 
 }

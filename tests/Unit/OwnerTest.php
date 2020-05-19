@@ -45,8 +45,19 @@ class OwnerTest extends TestCase
         $this->assertTrue($owner->validPhoneNumber());
 
         $owner = new Owner ([
-            "telephone" => '135 6728271'
+            "telephone" => '01223 678976'
         ]);
+        
+        $this->assertTrue($owner->validPhoneNumber());
+
+        $owner = new Owner ([
+            "telephone" => '01223768987'
+        ]);
+
+        $owner = new Owner ([
+            "telephone" => '0909867 8760'
+        ]);
+        
         
         $this->assertTrue($owner->validPhoneNumber());
     }
