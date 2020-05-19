@@ -2,15 +2,19 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
+// use PHPUnit\Framework\TestCase;
 use App\Owner;
+// use Illuminate\Foundation\Testing\RefereshDatabase;
+
 
 class OwnerTest extends TestCase
 {
+    // use RefreshDatabase;
+
     //are fillable properties working?
     public function test_model_accepts_fillable_properties()
     {
-
         $owner = new Owner(
             [
                 'first_name' => 'First Name',
@@ -18,7 +22,8 @@ class OwnerTest extends TestCase
                 'address_1' => 'Address 1',
                 'address_2' => 'Address 2',
                 'town' => 'Town',
-                'postcode' => 'Postcode'
+                'postcode' => 'Postcode',
+                'telephone' => 'Phone Number'
             ]
             );
             $this->assertSame('First Name', $owner->first_name);
@@ -27,7 +32,26 @@ class OwnerTest extends TestCase
             $this->assertSame('Address 2', $owner->address_2);
             $this->assertSame('Town', $owner->town);
             $this->assertSame('Postcode', $owner->postcode);
+            $this->assertSame('Phone Number', $owner->telephone) ;
+    }
+
+    public function testValidPhoneNumber()
+    {
+    
+        $owner = new Owner ([
+            "telephone" => '1235 6728271'
+        ]);
+
+        $this->assertTrue($owner->validPhoneNumber());
+
+        $owner = new Owner ([
+            "telephone" => '135 6728271'
+        ]);
+        
+        $this->assertTrue($owner->validPhoneNumber());
     }
 
     
 }
+
+

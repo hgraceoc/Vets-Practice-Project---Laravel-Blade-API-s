@@ -23,5 +23,9 @@ class Owner extends Model
         return $this->hasMany(Animal::class);
     }
 
+    public function validPhoneNumber(){
+        return preg_match("/\d{4}\s\d{7}/", $this->telephone) === 1;
+    }
+
 }
 
