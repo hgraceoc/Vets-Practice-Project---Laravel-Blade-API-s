@@ -14,14 +14,19 @@ class OwnerTest extends TestCase
         $owner = new Owner(
             [
                 'first_name' => 'First Name',
-                'second_name' => 'Second Name',
-                'address_1' => 'First Line',
-                'address_2' => 'Second Line',
+                'last_name' => 'Last Name',
+                'address_1' => 'Address 1',
+                'address_2' => 'Address 2',
                 'town' => 'Town',
                 'postcode' => 'Postcode'
             ]
             );
             $this->assertSame('First Name', $owner->first_name);
+            $this->assertSame('Last Name', $owner->last_name);
+            $this->assertSame('Address 1', $owner->address_1);
+            $this->assertSame('Address 2', $owner->address_2);
+            $this->assertSame('Town', $owner->town);
+            $this->assertSame('Postcode', $owner->postcode);
     }
 
     
