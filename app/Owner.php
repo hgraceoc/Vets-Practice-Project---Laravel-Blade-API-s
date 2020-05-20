@@ -27,9 +27,12 @@ class Owner extends Model
         return preg_match("/\d/", $this->telephone) === 1;
     }
 
-    public function numberOfPets(){
-        
+    public function numberOfPets() : int
+    {
+        return count($this->animals);
     }
+        
+    
 
 }
 

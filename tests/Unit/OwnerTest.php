@@ -23,7 +23,8 @@ class OwnerTest extends TestCase
                 'address_2' => 'Address 2',
                 'town' => 'Town',
                 'postcode' => 'Postcode',
-                'telephone' => 'Phone Number'
+                'telephone' => 'Phone Number',
+                'fake' => 'nuhuh'
             ]
             );
             $this->assertSame('First Name', $owner->first_name);
@@ -33,6 +34,7 @@ class OwnerTest extends TestCase
             $this->assertSame('Town', $owner->town);
             $this->assertSame('Postcode', $owner->postcode);
             $this->assertSame('Phone Number', $owner->telephone) ;
+            $this->assertSame(null, $this->owner->fake);
     }
 
     public function testValidPhoneNumber()
@@ -81,7 +83,17 @@ class OwnerTest extends TestCase
 
     }
 
+    public function testNumOfPets()
+    {
+       $owner = new Owner([
+           'first_name' => 'Jim'
+       ]);
+        $this->assertSame(0, $owner->numberOfPets());
+    }
+
     
 }
+
+
 
 
