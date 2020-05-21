@@ -18,4 +18,9 @@ class Animal extends Model
             echo 'dangerous';
         }
     }
+
+    public function treatments()
+    {
+        return $this->belongsToMany(Treatment::class);
+    }
 }
