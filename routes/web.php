@@ -17,31 +17,29 @@ Route::get('/', "Home@index");
 
 Route::get('/owners', "Owners@index");
 
+Route::get('{owner}', "Owners@show");
+
 Route::get('/animals', function () {
     return view('animals');
 });
+
+Route::get('create', "Owners@create");
 
 Route::get('owners/create', "Owners@create");
 
-Route::post('create', "Owners@createPost");
+Route::post('owners/create', "Owners@createPost");
 
-Route::get('{owner}/edit', "Owners@edit");
+Route::get('owners/{owner}/edit', "Owners@edit");
 
-Route::post('{owner}/edit', "Owners@editPost");
+Route::post('owners/{owner}/edit', "Owners@editPost");
 
-
-Route::get('{owner}', "Owners@show");
-
+Route::get('/owners/{owner}', "Owners@show");
 
 Route::get('form', "Owners@editOwner");
 
-Route::get('/animals', function () {
-    return view('animals');
-});
 
-// Route::get('/owners/edit/{id}', "Owners@edit");
 
-// Route::post('/owners/edit/{edit}', "Owners@editPost");
+
 
 
 

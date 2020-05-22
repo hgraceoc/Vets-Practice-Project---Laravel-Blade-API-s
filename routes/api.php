@@ -43,9 +43,11 @@ Route::group(["prefix" => "animals"], function () {
 
 });
 
+
 Route::group(["prefix" => "owners"], function () {
       
-    Route::get("", [Owners::class, "index"]);
+    Route::get("", [Owners::class, "index"])->middleware('auth:api');
+    ;
  
     Route::post("", [Owners::class, "store"]);
 
@@ -56,7 +58,7 @@ Route::group(["prefix" => "owners"], function () {
         Route::put("", [Owners::class, "update"]);
         
         Route::delete("", [Owners::class, "destroy"]);
-    });      
+    });     
 
 
 });

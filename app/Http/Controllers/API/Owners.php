@@ -32,6 +32,7 @@ class Owners extends Controller
     public function store(OwnerRequest $request)
     {
         $data = $request->all();
+        //$data = $request->only(')
 
         return Owner::create($data);
 

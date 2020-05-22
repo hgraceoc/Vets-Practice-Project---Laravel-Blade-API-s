@@ -3,16 +3,16 @@
 @section('main')
 <div class="text-center m-4">
 <h2 class="p-4">New Owner</h2>
-    <form method="get">
+    <form method="post">
     @csrf
         <label form ="first_name" name ="first_name">First Name</label>
         <input class="form-control @error('first_name') is-invalid @enderror "id="first_name" name="last_name" type="text" value="{{ old('first_name') }}"required>
 
-        @error('first_name')
+        {{-- @error('first_name')
             <p class="invalid-feedback">
-                {{ $messages }}
+                Incorrect
             </p>
-        @enderror
+        @enderror --}}
 
         <label form ="last_name" name ="last_name">Last Name</label>
         <input class="form-control @error('first_name') is-invalid @enderror "id="last_name" name="last_name" type="text" value="{{ old('last_name') }}" required>
